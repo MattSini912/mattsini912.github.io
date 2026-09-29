@@ -1,0 +1,71 @@
+[esperienze]
+other = "Experience"
+
+[progetti]
+other = "Projects"
+
+[contattami]
+other = "Contact Me"
+
+[blog]
+other = "Blog"
+
+[scorri]
+other = "scroll"
+
+[scopri_di_piu]
+other = "Learn more"
+
+[tutte_le_esperienze]
+other = "All experience"
+
+[tutti_i_progetti]
+other = "All projects"
+
+[chi_sono]
+other = "About me"
+
+[sottotitolo]
+other = "Cybersecurity student at University of Catania"
+
+[bio_breve]
+other = "I'm interested in the impact of digital technologies on people's lives."
+
+[altro]
+other = "More"
+
+[puoi_contattarmi]
+other = "You can reach me here:"
+
+[contatti]
+other = "Contacts"
+
+[lingua]
+other = "Italiano"
+
+[footer]
+other = "2026 · Matteo Sinitò · Data use for AI training prohibited"
+
+[home]
+other = "Home"
+
+[menu]
+other = "Open menu"
+
+[impostazioni]
+other = "Settings"
+
+[lingua_label]
+other = "Language"
+
+[tema_label]
+other = "Theme"
+
+[cambia_tema]
+other = "Toggle theme"
+
+[ultimi_articoli]
+other = "Latest posts"
+
+[tutti_gli_articoli]
+other = "All posts"

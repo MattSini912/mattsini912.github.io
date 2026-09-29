@@ -1,0 +1,77 @@
+<header class="topbar">
+  <div class="wrap topbar-inner">
+
+    {{/* --- Brand: nome su desktop, icona casa su mobile --- */}}
+    <a href="{{ .Site.Home.RelPermalink }}" class="topbar-brand" aria-label="{{ i18n "home" }}">
+      <span class="brand-full">{{ .Site.Title }}</span>
+      <span class="brand-short">{{ .Site.Params.shortName | default .Site.Title }}</span>
+      <svg class="brand-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 10.5 12 3l9 7.5"></path>
+        <path d="M5 10v10h14V10"></path>
+      </svg>
+    </a>
+
+    {{/* --- NAV DESKTOP --- */}}
+    <nav class="topbar-nav topbar-nav-desktop">
+      <a href="{{ "about/" | relLangURL }}#chi-sono">{{ i18n "chi_sono" }}</a>
+      <a href="{{ "blog/" | relLangURL }}">{{ i18n "blog" }}</a>
+      <a href="{{ "about/" | relLangURL }}" class="nav-highlight">{{ i18n "contattami" }}</a>
+      <details class="nav-more">
+        <summary>{{ i18n "altro" }}</summary>
+        <ul>
+          <li><a href="{{ "progetti/" | relLangURL }}">{{ i18n "progetti" }}</a></li>
+          <li><a href="{{ "esperienze/" | relLangURL }}">{{ i18n "esperienze" }}</a></li>
+        </ul>
+      </details>
+    </nav>
+
+    {{/* --- AZIONI DESKTOP: lingua + tema inline --- */}}
+    <div class="topbar-actions topbar-actions-desktop">
+      {{ partial "lang-switch.html" . }}
+      <button class="theme-toggle" type="button" aria-label="{{ i18n "cambia_tema" }}">
+        {{ partial "icon-theme.html" . }}
+      </button>
+    </div>
+
+    {{/* --- MOBILE: hamburger menu --- */}}
+    <details class="mobile-menu">
+      <summary aria-label="{{ i18n "menu" }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6"  x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </summary>
+      <ul>
+        <li><a href="{{ "about/" | relLangURL }}#chi-sono">{{ i18n "chi_sono" }}</a></li>
+        <li><a href="{{ "blog/" | relLangURL }}">{{ i18n "blog" }}</a></li>
+        <li><a href="{{ "progetti/" | relLangURL }}">{{ i18n "progetti" }}</a></li>
+        <li><a href="{{ "esperienze/" | relLangURL }}">{{ i18n "esperienze" }}</a></li>
+        <li><a href="{{ "about/" | relLangURL }}#contatti" class="nav-highlight">{{ i18n "contattami" }}</a></li>
+      </ul>
+    </details>
+
+    {{/* --- MOBILE: impostazioni (lingua + tema) --- */}}
+    <details class="mobile-settings">
+      <summary aria-label="{{ i18n "impostazioni" }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      </summary>
+      <div class="settings-panel">
+        <div class="settings-row">
+          <span class="settings-label">{{ i18n "lingua_label" }}</span>
+          {{ partial "lang-switch.html" . }}
+        </div>
+        <div class="settings-row">
+          <span class="settings-label">{{ i18n "tema_label" }}</span>
+          <button class="theme-toggle" type="button" aria-label="{{ i18n "cambia_tema" }}">
+            {{ partial "icon-theme.html" . }}
+          </button>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</header>

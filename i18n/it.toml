@@ -1,0 +1,71 @@
+[esperienze]
+other = "Esperienze"
+
+[progetti]
+other = "Progetti"
+
+[contattami]
+other = "Contattami"
+
+[blog]
+other = "Blog"
+
+[scorri]
+other = "scorri"
+
+[scopri_di_piu]
+other = "Scopri di più"
+
+[tutte_le_esperienze]
+other = "Tutte le esperienze"
+
+[tutti_i_progetti]
+other = "Tutti i progetti"
+
+[chi_sono]
+other = "Chi sono"
+
+[sottotitolo]
+other = "Studente di Cybersecurity presso Università di Catania"
+
+[bio_breve]
+other = "Mi interessa l'impatto delle tecnologie digitali sulla vita delle persone."
+
+[altro]
+other = "Altro"
+
+[puoi_contattarmi]
+other = "Puoi contattarmi qui:"
+
+[contatti]
+other = "Contatti"
+
+[lingua]
+other = "English"   # Il testo mostrato per cambiare lingua
+
+[footer]
+other = "2026 · Matteo Sinitò · Vietato l'uso dei dati per addestramento IA"
+
+[home]
+other = "Home"
+
+[menu]
+other = "Apri menu"
+
+[impostazioni]
+other = "Impostazioni"
+
+[lingua_label]
+other = "Lingua"
+
+[tema_label]
+other = "Tema"
+
+[cambia_tema]
+other = "Cambia tema"
+
+[ultimi_articoli]
+other = "Ultimi articoli"
+
+[tutti_gli_articoli]
+other = "Tutti gli articoli"

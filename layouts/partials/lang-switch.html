@@ -1,0 +1,11 @@
+{{ if .IsTranslated }}
+  {{ range .Translations }}
+    <a href="{{ .RelPermalink }}" class="lang-switch">{{ i18n "lingua" }}</a>
+  {{ end }}
+{{ else }}
+  {{ if eq .Site.Language.Lang "it" }}
+    <a href="{{ "/en/" | relURL }}" class="lang-switch">{{ i18n "lingua" }}</a>
+  {{ else }}
+    <a href="{{ "/" | relURL }}" class="lang-switch">{{ i18n "lingua" }}</a>
+  {{ end }}
+{{ end }}

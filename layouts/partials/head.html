@@ -1,0 +1,54 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ i18n "sottotitolo" }}">
+  <meta property="og:description" content="{{ i18n "sottotitolo" }}">
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <title>{{i18n .Site.Title }}</title>
+
+  {{ range .AlternativeOutputFormats -}}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ site.Title }}">
+  {{ end -}}
+
+  <script>
+  (function () {
+    var t = localStorage.getItem('theme');
+    if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.theme-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+        });
+      });
+      // Chiudi i menu aperti quando si clicca fuori
+      document.addEventListener('click', function (e) {
+        document.querySelectorAll('details[open]').forEach(function (d) {
+          if (!d.contains(e.target)) d.removeAttribute('open');
+        });
+      });
+      // Apri uno solo alla volta: se apro un menu, chiudo gli altri
+      document.querySelectorAll('.mobile-menu, .mobile-settings').forEach(function (d) {
+        d.addEventListener('toggle', function () {
+          if (!d.open) return;
+          document.querySelectorAll('details[open]').forEach(function (other) {
+            if (other !== d) other.removeAttribute('open');
+          });
+        });
+      });
+    });
+  })();
+</script>
+
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+
+  {{ if .IsTranslated }}
+    {{ range .Translations }}
+      <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+    {{ end }}
+  {{ end }}
+</head>

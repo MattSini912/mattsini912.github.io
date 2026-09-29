@@ -1,0 +1,33 @@
+baseURL = "https://sinito.it/"
+languageCode = "it"
+defaultContentLanguage = "it"
+defaultContentLanguageInSubdir = false
+title = "Matteo Sinitò — Pagina personale"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  shortName = "Matteo Sinitò"
+  github = "https://github.com/MattSini912"
+  linkedin = "https://it.linkedin.com/in/matteosinito"
+
+[languages]
+  [languages.it]
+    languageName = "Italiano"
+    weight = 1
+    contentDir = "content"
+    title = "Matteo Sinitò — Pagina personale"
+  [languages.en]
+    languageName = "English"
+    weight = 2
+    contentDir = "content"
+    title = "Matteo Sinitò — Personal Page"
+  
+[outputs]
+  home    = ["HTML"]
+  section = ["HTML"]
+  page    = ["HTML"]
+
+[pagination]
+  pagerSize = 10
+  path = 'page'

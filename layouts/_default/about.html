@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="wrap about-page">
+
+  <div class="about-top">
+
+    <div class="about-box">
+      {{ with .Params.image }}
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+      {{ else }}
+        <div class="about-box-placeholder">MS</div>
+      {{ end }}
+    </div>
+
+    <div class="about-contacts" id="contatti">
+      <h2>{{ i18n "contatti" }}</h2>
+      <div class="contacts">
+        <a href="{{ .Site.Params.github }}">GitHub</a>
+        <a href="{{ .Site.Params.linkedin }}">LinkedIn</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="about-bio" id="chi-sono">
+    <h2>{{ i18n "chi_sono" }}</h2>
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </div>
+
+</div>
+{{ end }}

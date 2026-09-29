@@ -1,0 +1,85 @@
+{{ define "main" }}
+
+<header class="hero">
+  <h1>Matteo <span class="accent">Sinitò</span></h1>
+  <p>{{ i18n "sottotitolo" }}</p>
+  <nav class="hero-nav">
+    <a href="{{ "blog/" | relLangURL }}">{{ i18n "blog" }}</a>
+  </nav>
+
+  <a href="#contenuti" class="scroll-hint" aria-label="{{ i18n "scorri" }}">
+    <span>{{ i18n "scorri" }}</span>
+    <svg viewBox="0 0 14 20" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7 2v15" />
+      <path d="M2 12l5 5 5-5" />
+    </svg>
+  </a>
+</header>
+
+<section class="grid wrap" id="contenuti">
+
+  <!-- Colonna sinistra: card unica a doppia altezza -->
+  <article class="card card-about">
+    <h2>{{ i18n "chi_sono" }}</h2>
+    <p>{{ i18n "bio_breve" }}</p>
+
+    <h3 class="about-subtitle">{{ i18n "puoi_contattarmi" }}</h3>
+    <div class="contacts">
+      <a href="{{ .Site.Params.github }}">GitHub</a>
+      <a href="{{ .Site.Params.linkedin }}">LinkedIn</a>
+    </div>
+
+    <div class="more">
+      <a href="{{ "about/" | relLangURL }}">{{ i18n "scopri_di_piu" }}</a>
+    </div>
+  </article>
+
+  <!-- Colonna destra, riga 1 -->
+  <article class="card card-progetti">
+    <h2>{{ i18n "progetti" }}</h2>
+    <ul class="stack">
+      {{ range first 4 (where .Site.RegularPages "Section" "progetti").ByDate.Reverse }}
+        <li>
+          <a href="{{ .RelPermalink }}"><span class="t">{{ .Title }}</span></a>
+          <span class="meta">{{ .Date.Format "Jan 2006" }}</span>
+        </li>
+      {{ end }}
+    </ul>
+    <div class="more"><a href="{{ "progetti/" | relLangURL }}">{{ i18n "tutti_i_progetti" }}</a></div>
+  </article>
+
+  <!-- Colonna destra, riga 2 -->
+  <article class="card card-esperienze">
+    <h2>{{ i18n "esperienze" }}</h2>
+    <ul class="stack">
+      {{ range first 4 (where .Site.RegularPages "Section" "esperienze").ByDate.Reverse }}
+        <li>
+          <div>
+            <div class="t">{{ .Title }}</div>
+            <div class="d">{{ .Params.summary }}</div>
+          </div>
+          <span class="meta">{{ .Date.Format "2006" }}</span>
+        </li>
+      {{ end }}
+    </ul>
+    <div class="more"><a href="{{ "esperienze/" | relLangURL }}">{{ i18n "tutte_le_esperienze" }}</a></div>
+  </article>
+  
+</section>
+
+<section class="wrap blog-recent">
+  <article class="card">
+    <h2>{{ i18n "ultimi_articoli" }}</h2>
+    <ul class="stack">
+      {{ range first 4 (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
+        <li>
+          <a href="{{ .RelPermalink }}"><span class="t">{{ .Title }}</span></a>
+          <span class="meta">{{ .Date.Format "2 Jan 2006" }}</span>
+        </li>
+      {{ end }}
+    </ul>
+    <div class="more"><a href="{{ "blog/" | relLangURL }}">{{ i18n "tutti_gli_articoli" }}</a></div>
+  </article>
+</section>
+
+{{ end }}

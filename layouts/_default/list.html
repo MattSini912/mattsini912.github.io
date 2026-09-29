@@ -1,0 +1,63 @@
+{{ define "main" }}
+<div class="wrap list-page">
+
+  <h1>{{ .Title }}</h1>
+
+  {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
+  <ul class="stack">
+    {{ range $paginator.Pages }}
+      <li>
+        <a href="{{ .RelPermalink }}"><span class="t">{{ .Title }}</span></a>
+        <span class="meta">{{ .Date.Format "2 Jan 2006" }}</span>
+      </li>
+    {{ end }}
+  </ul>
+
+  {{ if gt $paginator.TotalPages 1 }}
+    <nav class="pagination" aria-label="{{ i18n "paginazione" }}">
+
+      {{ with $paginator.Prev }}
+        <a href="{{ .URL }}" class="pagination-prev">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          {{ i18n "precedente" }}
+        </a>
+      {{ else }}
+        <span class="pagination-prev pagination-disabled">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          {{ i18n "precedente" }}
+        </span>
+      {{ end }}
+
+      <span class="pagination-info">
+        {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}
+      </span>
+
+      {{ with $paginator.Next }}
+        <a href="{{ .URL }}" class="pagination-next">
+          {{ i18n "successiva" }}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      {{ else }}
+        <span class="pagination-next pagination-disabled">
+          {{ i18n "successiva" }}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </span>
+      {{ end }}
+
+    </nav>
+  {{ end }}
+
+</div>
+{{ end }}
