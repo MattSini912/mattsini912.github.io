@@ -9,7 +9,7 @@ disableKinds = ["taxonomy", "term"]
 [params]
   shortName = "Matteo Sinitò"
   github = "https://github.com/MattSini912"
-  linkedin = "https://it.linkedin.com/in/matteosinito"
+  linkedin = "https://www.linkedin.com/in/matteosinito"
 
 [languages]
   [languages.it]
