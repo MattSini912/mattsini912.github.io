@@ -41,7 +41,7 @@ other = "Puoi contattarmi qui:"
 other = "Contatti"
 
 [lingua]
-other = "English"   # Il testo mostrato per cambiare lingua
+other = "English"
 
 [footer]
 other = "2026 · Matteo Sinitò · Vietato l'uso dei dati per addestramento IA"
