@@ -1,5 +1,8 @@
 ---
 title: "{{ replace .File.ContentBaseName "-" " " | title }}"
 date: {{ .Date }}
-summary: "Breve descrizione dell'esperienza."
+summary: ""
+description: ""
+image: "/images/esperienze/og-default.png"
+draft: true
 ---

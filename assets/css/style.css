@@ -587,6 +587,32 @@ html[data-theme="light"] .icon-sun  { display: none; }   /* in chiaro vedi ☾ p
   color: var(--dim);
   font-size: 0.82rem;
 }
+.site-footer .license {
+  margin: 1.5rem 0 1rem;
+  font-size: 0.78rem;
+  color: var(--dim);
+  line-height: 1.6;
+  text-align: center;
+}
+.site-footer .license a {
+  color: var(--dim);
+  text-decoration: none;
+  transition: color .2s;
+}
+.site-footer .license a:hover {
+  color: var(--blue);
+}
+.site-footer .license img,
+.site-footer .license svg {
+  display: block;
+  margin: 0 auto;
+  opacity: 0.7;
+  transition: opacity .2s;
+}
+.site-footer .license a:hover img,
+.site-footer .license a:hover svg {
+  opacity: 1;
+}
 
 /* ---------- PAGINAZIONE ----------*/
 .list-page { padding: 3rem 0 4rem; }

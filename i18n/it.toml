@@ -43,9 +43,6 @@ other = "Contatti"
 [lingua]
 other = "English"
 
-[footer]
-other = "2026 · Matteo Sinitò · Vietato l'uso dei dati per addestramento IA"
-
 [home]
 other = "Home"
 
@@ -69,3 +66,12 @@ other = "Ultimi articoli"
 
 [tutti_gli_articoli]
 other = "Tutti gli articoli"
+
+[footer_autore]
+other = "© 2026 Matteo Sinitò · Alcuni diritti riservati"
+
+[footer_licenza]
+other = "I contenuti di questo sito sono distribuiti con licenza CC BY-NC-SA 4.0, salvo diversamente indicato."
+
+[footer_ia]
+other = "Non possono essere usati per addestrare sistemi di intelligenza artificiale."

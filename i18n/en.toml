@@ -43,9 +43,6 @@ other = "Contacts"
 [lingua]
 other = "Italiano"
 
-[footer]
-other = "2026 · Matteo Sinitò · Data use for AI training prohibited"
-
 [home]
 other = "Home"
 
@@ -69,3 +66,12 @@ other = "Latest posts"
 
 [tutti_gli_articoli]
 other = "All posts"
+
+[footer_autore]
+other = "© 2026 Matteo Sinitò · Some rights reserved"
+
+[footer_licenza]
+other = "The contents of this site are licensed under CC BY-NC-SA 4.0, unless otherwise noted."
+
+[footer_ia]
+other = "They may not be used to train artificial intelligence systems."

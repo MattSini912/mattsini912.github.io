@@ -10,6 +10,7 @@ disableKinds = ["taxonomy", "term"]
   shortName = "Matteo Sinitò"
   github = "https://github.com/MattSini912"
   linkedin = "https://www.linkedin.com/in/matteosinito"
+  ogImage = "/images/og-default.jpg"
 
 [languages]
   [languages.it]
