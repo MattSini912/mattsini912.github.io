@@ -28,6 +28,9 @@
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ site.Title }}">
   {{ end -}}
 
+  {{ $css := resources.Get "css/style.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
   <script>
     (function () {
       var t = localStorage.getItem('theme');
@@ -59,9 +62,6 @@
       });
     })();
   </script>
-
-  {{ $css := resources.Get "css/style.css" | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 
   {{ if .IsTranslated }}
     {{ range .Translations }}
