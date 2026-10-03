@@ -2,7 +2,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ i18n "sottotitolo" }}{{ end }}">
-  <meta property="og:title" content="{{ .Title }}">
+  {{ $standalone := and .IsPage (ne .Section "") }}
+  <meta property="og:title" content="{{ if $standalone }}{{ .Title }}{{ else }}{{ .Title }}{{ with .Site.Params.shortName }} | {{ . }}{{ end }}{{ end }}">
   <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 155 }}{{ end }}">
   {{- with .Params.image -}}
     {{- if ne . "" -}}
@@ -21,7 +22,7 @@
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
   <meta property="og:site_name" content="{{ .Site.Title }}">
 
-  <title>{{ .Title }}</title>
+  <title>{{ if $standalone }}{{ .Title }}{{ else }}{{ .Title }}{{ with .Site.Params.shortName }} | {{ . }}{{ end }}{{ end }}</title>
 
   {{ range .AlternativeOutputFormats -}}
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ site.Title }}">
