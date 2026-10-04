@@ -9,7 +9,7 @@
 
   <a href="#contenuti" class="scroll-hint" aria-label="{{ i18n "scorri" }}">
     <span>{{ i18n "scorri" }}</span>
-    <svg viewBox="0 0 14 20" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+    <svg width="22" height="22" viewBox="0 0 14 20" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M7 2v15" />
       <path d="M2 12l5 5 5-5" />
     </svg>
@@ -40,8 +40,10 @@
     <ul class="stack">
       {{ range first 4 (where .Site.RegularPages "Section" "progetti").ByDate.Reverse }}
         <li>
-          <a href="{{ .RelPermalink }}"><span class="t">{{ .Title }}</span></a>
-          <span class="meta">{{ .Date.Format "Jan 2006" }}</span>
+          <a href="{{ .RelPermalink }}" class="stack-link">
+            <div><span class="t">{{ .Title }}</span></div>
+            <span class="meta">{{ .Date.Format "Jan 2006" }}</span>
+          </a>
         </li>
       {{ end }}
     </ul>
@@ -54,11 +56,13 @@
     <ul class="stack">
       {{ range first 4 (where .Site.RegularPages "Section" "esperienze").ByDate.Reverse }}
         <li>
-          <div>
-            <div class="t">{{ .Title }}</div>
-            <div class="d">{{ .Params.summary }}</div>
-          </div>
-          <span class="meta">{{ .Date.Format "2006" }}</span>
+          <a href="{{ .RelPermalink }}" class="stack-link">
+            <div>
+              <div class="t">{{ .Title }}</div>
+              <div class="d">{{ .Params.summary }}</div>
+            </div>
+            <span class="meta">{{ .Date.Format "Jan 2006" }}</span>
+          </a>
         </li>
       {{ end }}
     </ul>
@@ -73,8 +77,10 @@
     <ul class="stack">
       {{ range first 4 (where .Site.RegularPages "Section" "blog").ByDate.Reverse }}
         <li>
-          <a href="{{ .RelPermalink }}"><span class="t">{{ .Title }}</span></a>
-          <span class="meta">{{ .Date.Format "2 Jan 2006" }}</span>
+          <a href="{{ .RelPermalink }}" class="stack-link">
+            <div><span class="t">{{ .Title }}</span></div>
+            <span class="meta">{{ .Date.Format "2 Jan 2006" }}</span>
+          </a>
         </li>
       {{ end }}
     </ul>

@@ -7,8 +7,15 @@
   <ul class="stack">
     {{ range $paginator.Pages }}
       <li>
-        <a href="{{ .RelPermalink }}"><span class="t">{{ .Title }}</span></a>
-        <span class="meta">{{ .Date.Format "2 Jan 2006" }}</span>
+        <a href="{{ .RelPermalink }}" class="stack-link">
+          <div>
+            <div class="t">{{ .Title }}</div>
+            {{ with .Params.summary }}
+              <div class="d">{{ . }}</div>
+            {{ end }}
+          </div>
+          <span class="meta">{{ .Date.Format "2 Jan 2006" }}</span>
+        </a>
       </li>
     {{ end }}
   </ul>
@@ -16,20 +23,14 @@
   {{ if gt $paginator.TotalPages 1 }}
     <nav class="pagination" aria-label="{{ i18n "paginazione" }}">
 
-      {{ with $paginator.Prev }}
-        <a href="{{ .URL }}" class="pagination-prev">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
+      {{ if $paginator.Prev }}
+        <a href="{{ $paginator.Prev.URL }}" class="pagination-prev">
+          {{ partial "icon-arrow-left.html" . }}
           {{ i18n "precedente" }}
         </a>
       {{ else }}
         <span class="pagination-prev pagination-disabled">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
+          {{ partial "icon-arrow-left.html" . }}
           {{ i18n "precedente" }}
         </span>
       {{ end }}
@@ -38,21 +39,15 @@
         {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}
       </span>
 
-      {{ with $paginator.Next }}
-        <a href="{{ .URL }}" class="pagination-next">
+      {{ if $paginator.Next }}
+        <a href="{{ $paginator.Next.URL }}" class="pagination-next">
           {{ i18n "successiva" }}
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
+          {{ partial "icon-arrow-right.html" . }}
         </a>
       {{ else }}
         <span class="pagination-next pagination-disabled">
           {{ i18n "successiva" }}
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
+          {{ partial "icon-arrow-right.html" . }}
         </span>
       {{ end }}
 

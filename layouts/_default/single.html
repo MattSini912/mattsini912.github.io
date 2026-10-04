@@ -1,13 +1,26 @@
 {{ define "main" }}
 <div class="wrap" style="padding-top: 3rem; padding-bottom: 4rem;">
   <article>
+    
     <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">{{ .Title }}</h1>
+    
+    {{ with .Params.summary }}
+      <p class="lead">{{ . }}</p>
+    {{ else }}
+      {{ with .Description }}
+        <p class="lead">{{ . }}</p>
+      {{ end }}
+    {{ end }}
+
     {{ with .Date }}
       <p style="color: var(--dim); font-size: 0.85rem; margin-bottom: 2rem;">{{ .Format "2 January 2006" }}</p>
     {{ end }}
+    
     <div class="content">
       {{ .Content }}
+    
     </div>
+    
   </article>
 </div>
 {{ end }}
