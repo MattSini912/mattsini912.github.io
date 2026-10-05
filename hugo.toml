@@ -8,6 +8,7 @@ disableKinds = ["taxonomy", "term"]
 
 [params]
   shortName = "Matteo Sinitò"
+  mail = "matteo@sinito.it"
   github = "https://github.com/MattSini912"
   linkedin = "https://www.linkedin.com/in/matteosinito"
   ogImage = "/images/og-default.png"
